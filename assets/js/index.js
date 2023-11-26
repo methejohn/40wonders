@@ -21,10 +21,6 @@ $('.btn-lang').click(function(){
 })
 
 
-
-
-
-
 $('[data-number]').each(function(i, el){
     var startCount = {var: 0};
 
@@ -58,69 +54,6 @@ $('[data-number]').each(function(i, el){
 
 })
 
-// gsap.from("#number", {
-//     
-//     innerText: 0,
-//     duration: 2,
-//     snap :{
-//         innerText: 0.1
-//     },
-//     // onUpdate:function()
-//     // {$('#number').innerHTML = $('#number').innerText.toFixed(1)} 
-
-// });
-
-// gsap.from("#number2", {
-//     scrollTrigger: {
-//         trigger: ".sc-governance .governance-item .top-area",
-//         toggleActions: "restart none none reverse",
-//         start: "0% 85%",
-//         end: "+=150% 80%",
-//         markers: true,
-//     },
-//     innerText: 0,
-//     duration: 2,
-//     snap :{
-//         innerText: 0.001
-//     },
-//     // onUpdate:function()
-//     // {$('#number').innerHTML = $('#number').innerText.toFixed(1)} 
-
-// });
-
-// gsap.from("#number3", {
-//     scrollTrigger: {
-//         trigger: ".sc-governance .governance-item .top-area",
-//         toggleActions: "restart none none reverse",
-//         start: "0% 85%",
-//         end: "+=150% 80%",
-//         markers: true,
-//     },
-//     innerText: 0,
-//     duration: 2,
-//     snap :{
-//         innerText: 1
-//     },
-//     // onUpdate:function()
-//     // {$('#number').innerHTML = $('#number').innerText.toFixed(1)} 
-
-// });
-
-
-
-// window.innerWidth(function(){
-//     
-//             return window.innerWidth;
-//         }
-
-// window.addEventListener("resize", function(){
-//     if (window.innerWidth<1024) {
-//         $('.sc-partners .partner-list .partner-item .text-wrap').removeAttr('data-batch')
-//     } else{
-//         $('.sc-partners .partner-list .partner-item .text-wrap').attr('data-batch');
-//     }
-
-// })
 
 gsap.set("[data-batch]", {y:100});
 gsap.set("[data-batch]", {opacity: 0});
@@ -135,29 +68,25 @@ ScrollTrigger.batch("[data-batch]", {
 
     onLeaveBack: batch => gsap.to(batch, {opacity: 0, y: 100}),
 
-
 });
 
-// 
 ScrollTrigger.addEventListener("refreshInit", () => gsap.set("[data-batch]", {y: 0}));
 
 $('.header .group-tab button').click(function(){
     tabClass=$(this).data('tab')
+    const classOn= $(this).hasClass('on');
+
     $(this).addClass('on').siblings('button').removeClass('on')
     $(tabClass).addClass('on').siblings('div').removeClass('on')
+
+    if (!classOn) {
+        $('.header .group-right .link-area').removeClass('on');
+        $('body').removeClass('hidden');
+    }
+
     ScrollTrigger.refresh();
 })
 
-
-// gsap.set("[data-batch2]", {y:100});
-// gsap.set("[data-batch2]", {opacity: 0});
-
-// ScrollTrigger.batch("[data-batch2]", {
-//     start:"0% 85%",
-//     onEnter: batch => gsap.to(batch, {opacity: 1, y: 0}),
-//     onLeaveBack: batch => gsap.to(batch, {opacity: 0, y: 100}),
-
-// });
 
 $('.footer .group-bottom .btn-lang').mouseover(function(){
     $(this).find('svg').addClass('on')
