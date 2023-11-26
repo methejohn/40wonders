@@ -1,0 +1,200 @@
+.footer{
+    padding: 48px 40px;
+    background: #1a1a1a;
+    border-top: 1px solid #464646;
+
+    @include tablet{
+        padding: 31px 20px;
+    }
+
+    .group-top{
+        position: relative;
+        @include tablet{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            @include tablet{
+                width: 157px;
+                height: auto;
+            }
+        }
+        .text{
+            display: block;
+            margin-top: 32px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #464646;
+
+            @include tablet{
+                display: none;
+            }
+        }
+        .family-list{
+            display: flex;
+            margin-top: 8px;
+            gap: 20px;
+            color: #fff;
+            margin-bottom: 48px;
+            
+
+            @include tablet{
+                position: absolute;
+                top: -4px;
+                transform: translateY(-100%);
+                right: 0;
+                flex-direction: column;
+                display: none;
+                width: 185px;
+                background: #2e2e2e;
+                color: #fff;
+                gap: 0;
+                margin: 0;
+            }
+
+            li{
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 500;
+
+                a{
+                    @include tablet{
+                        display: block;
+                        padding: 11px 16px 12px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 21px;
+                        font-weight: 400;
+                    }
+                }
+            
+            }
+        }
+        .btn-family{
+            align-items: center;
+            justify-content: space-between;
+            width: 140px;
+            padding: 8px;
+            color: #a7a7a7;
+            border: 1px solid #404040;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 21px;
+            display: none;
+            @include tablet{
+                display: flex;
+            }
+
+
+            &.on{
+                svg{
+                    transform: rotate(180deg);
+                }
+            }
+            svg{
+                width: 16px;
+                height: auto;
+                transition: transform .3s;
+            }
+        }
+    }
+    .group-bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        margin-top: 48px;
+        border-top: 1px solid #464646;
+        @include tablet{
+            border-top: 0;
+            flex-direction: column;
+            align-items: unset;
+            margin-top: 36px;
+            padding-top: 0;
+        }
+        a{
+            transition: color .3s;
+        }
+        .policy-list{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+
+            @include tablet{
+                margin-top: 16px;
+                gap: 16px;
+            }
+
+
+            a{
+                font-size: 12px;
+                line-height: 18px;
+                color: #464646;
+                display: block;
+                &:hover{
+                    color: #fff;
+                }
+            }
+
+            .btn-lang{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    &.on path{
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+        .copy{
+            display: block;
+            font-size: 10px;
+            line-height: 15px;
+            color: #464646;
+
+            @include tablet{
+                margin-top: 8px;
+            }
+        }
+        .right-area{
+            @include tablet{
+                order: -1;
+            }
+
+            .sns-list{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                @include tablet{
+                    gap: 4px;
+                }
+                li{
+                    a{
+                        svg{
+                            width: 32px;height: 32px;
+                            opacity: 0.2;
+                            transition: all .3s;
+                            &:hover{
+                                fill:#fff;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
+
+
+

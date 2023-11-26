@@ -1,0 +1,63 @@
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    margin: -1px;
+}
+
+.desc{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    @include laptop{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    @include tablet{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    
+    sup{
+        position: relative;
+        top: 1px;
+        font-size: 12px;
+    }
+}
+
+.headline{
+    @include unit(font, 54);
+    @include unit(lineheight, 54);
+
+    @include laptop{
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    @include tablet{
+        font-size: 32px;
+        line-height: 39px;
+        font-weight: 500;
+    }
+}
+
+.btn-lang{
+    &:hover{
+        background-color: #2e2e2e;
+    }
+    .en{
+        display: none;
+    }
+    &.on{
+        .kr{
+            display: none;
+        }
+        .en{
+            display: block;
+        }
+    }
+}
+

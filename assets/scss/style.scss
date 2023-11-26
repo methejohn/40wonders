@@ -1,0 +1,15 @@
+@import './util/var'; //변수
+@import './util/mixin';  //재활용
+
+@import './vendors/swiper-bundle';
+
+@import './base/fonts';
+@import './base/reset';
+@import './base/common';
+
+@import './layout/header';
+@import './layout/nav';
+@import './layout/footer';
+
+@import './page/main';
+

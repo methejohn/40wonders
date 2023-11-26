@@ -1,0 +1,50 @@
+@mixin unit($prop, $num1:0,$num2:0,$num3:0,$num4:0){
+    @if($prop=='font'){
+        font-size: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='padding'){
+        padding: ($num1*100)/1920+vw ($num2*100)/1920+vw ($num3*100)/1920+vw ($num4*100)/1920+vw;
+    }
+    @else if($prop=='maxwidth'){
+        max-width: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='height'){
+        height: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='height-lap'){
+        height: ($num1*100)/1023+vw;
+    }
+    @else if($prop=='lineheight'){
+        line-height: ((($num1*100)/1920)*1.2+vw);
+    }
+    @else if($prop=='width'){
+        width: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='paddingbottom'){
+        padding-bottom: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='padding-right'){
+        padding-right: ($num1*100)/1920+vw;
+    }
+    @else if($prop=='margintop'){
+        margin-top: ($num1*100)/1920+vw;
+    }
+    
+}
+
+$tablet:1023px;
+$laptop: 1439px;
+
+@mixin tablet(){
+    @media (max-width:$tablet) {
+        @content;
+    }
+}
+
+@mixin laptop(){
+    @media (min-width:$tablet) and (max-width:$laptop) {
+        @content;
+    }
+}
+
+// (min-width:1023px) and (max-width:1439px)

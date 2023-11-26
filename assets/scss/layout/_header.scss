@@ -1,0 +1,328 @@
+.hidden{
+    overflow: hidden;
+    .dimmed{
+        position: fixed;
+        top: 0;left: 0;right: 0;bottom: 0;
+        background-color: rgba(0,0,0,.3);
+    }
+}
+
+.header{
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 60px;
+    padding: 0 20px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #464646;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
+    
+    .logo a{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        animation: logoMove .6s 2s forwards;
+        padding-left: 92px;
+        position: relative;
+
+        @include laptop{
+            animation: none;
+            padding-left: 0;
+        }
+
+        @include tablet{
+            animation: none;
+            padding-left: 0;
+        }
+
+        .wemix{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 84px;
+            height: 20px;
+            background: url(../images/wemix-logo.svg);
+            background-repeat: no-repeat;
+            animation: wemix 1s 1.6s forwards;
+
+            @include laptop{
+                display: none;
+            }
+            @include tablet{
+                display: none;
+            }
+        }
+        
+        img{
+            width: 156px;
+            height: 22px;
+        }
+
+    }
+    .group-tab{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+
+        @include tablet{
+            display: none;
+        }
+        @include laptop{
+            position: static;
+            transform: unset;
+        }
+        
+        [class*="btn-"]{
+            display: block;
+            padding: 8px 16px;
+            color: #fff;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+            transition: color .3s;
+            &:hover{
+                color: #8458ff;
+
+                @include tablet{
+                    color: #fff;
+                }
+            }
+            &.on{
+                color: #8458ff;
+                text-decoration: underline;
+                text-underline-offset: 23px;
+                text-decoration-thickness: 2px;
+    
+            }
+        }
+        
+    }
+    .group-right{
+        margin-left: auto;
+        position: relative;
+        display: flex;
+        gap: 12px;
+        @include tablet{
+            position: unset;
+        }
+        [class*="btn-"]{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include tablet{
+                width: unset;
+                height: unset;
+            }
+        }
+        .btn-lang{
+            border-radius: 50%;
+            @include tablet{
+                display: none;
+            }
+            svg{
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .btn-link{
+            svg{
+                width: 24px;
+                height: 24px;
+
+                @include tablet{
+                    display: none;
+                }
+            }
+        }
+
+        .btn-hamburger{
+            display: none;
+            @include tablet{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
+        .link-area{
+            position: absolute;
+            top: 100%;
+            right: 4px;
+            width: 312px;
+            background: #2e2e2e;
+            overflow: hidden;
+            border: 1px solid #464646;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,.05), 0 4px 20px rgba(0,0,0,.11);
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .5s, visibility .5s;
+
+            &.show{
+                opacity: 1;
+                visibility: visible;
+
+
+            }
+
+            @include tablet{
+                top: 0;
+                // padding-top: 0;
+                right: 0;
+                padding-top: 18px;
+                min-width: 280px;
+                max-width: 392px;
+                width: 100%;
+                border-radius: 0;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                transform: translateX(100%);
+                transition: transform .5s;
+                opacity: 1;
+                visibility: visible;
+                overflow: hidden;
+                overflow-y: auto;
+
+                &.on{
+                    transform: translateX(0);
+
+                }
+
+            }
+
+            .top-area{
+                display: none;
+                
+                @include tablet{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 20px;
+                    margin-bottom: 10.5px;
+
+                    .btn-lang{
+                        display: block;
+                    }
+                    .btn-close{
+                        filter: invert(1);
+
+                    }
+
+                }
+
+            }
+            .bottom-area{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex: 1;
+                // height: calc(100% - 42.5px);
+                .group-tab{
+                    display: none;
+                    @include tablet{
+                        display: block;
+                        position: relative;
+                        transform: translate(0);
+                        left: unset;
+                        top: unset;
+                        padding-top: 24px;
+                        border-top: 1px solid #464646;
+    
+                        [class*="btn-"]{
+                            padding: 12px 20px 16px;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 24px;
+                            &+[class*="btn-"]{
+                                padding-top: 16px;
+                            }
+                            &.on{
+                                // color: #8458ff;
+                                color: #a484ff;
+                                text-decoration: none;
+                    
+                            }
+                        }
+                    }
+                }
+    
+                .link-list{
+                    display: grid;    
+                    grid-template-columns: repeat(3, 1fr);
+                    padding: 16px 12px;
+                    gap: 4px 0;
+
+
+                    @include tablet{
+                        padding: 16px 16px 40px;
+                        border-top: 1px solid #464646;
+                    }
+        
+        
+                    .link-item {
+                        a{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 8px;
+                            padding: 10px 0;
+
+                            @include tablet{
+                                border-radius: 4px;
+                                &:hover{
+                                    background: #404040;
+                                }
+                            }
+                            
+                        }
+                        svg{
+                            width: 48px;
+                            height: 48px;
+                        }
+                        .text{
+                            color: #d1d1d1;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 120%;
+                            @include tablet{
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+@keyframes wemix{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes logoMove{
+    0%{
+        padding-left: 92px;
+    }
+    100%{
+        padding-left: 0;
+    }
+}
+
