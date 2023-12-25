@@ -113,7 +113,6 @@ function getInnerWidth() {
         const gridStyles = window.getComputedStyle(gridElement);
         const gridColumnValue = gridStyles.getPropertyValue('grid-template-columns');
         const gridColumnCount = gridColumnValue.split(" ").length;
-        console.log(gridColumnCount);
         const fixedIndex = i % gridColumnCount;
         
         

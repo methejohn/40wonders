@@ -436,6 +436,9 @@
             &:nth-child(4) .svg-box,
             &:nth-child(2) .svg-box{
                 border-left: 1px solid #464646;
+                @include tablet{
+                    border-left: 0;
+                }
             }
             .text-wrap{
                 display: flex;
@@ -784,6 +787,7 @@
             @include tablet{
                 flex: 1;
                 display: flex;
+                border-left: 0;
             }
             &::after{
                 content: '';
@@ -809,6 +813,7 @@
             @include tablet{
                 justify-content: flex-end;
                 padding-right: 8px;
+                border-left: 1px solid #464646;
             }
             &::after{
                 transform: rotate(180deg);
@@ -1136,7 +1141,14 @@
         li{
             flex: 1;
             border-left: 1px solid #464646;
-            /* border-bottom: 1px solid #464646 */
+            @include tablet{
+                border-left: 0;
+            }
+            &+li{
+                @include tablet{
+                    border-left: 1px solid #464646;
+                }
+            }
             a{
                 @include unit(padding,52,0,52,0);
                 display: flex;
@@ -1167,7 +1179,9 @@
             padding: 60px 60px 0 60px;
             @include unit(paddingbottom, 205);
             border-left: 1px solid #464646;
-
+            @include tablet{
+                border-left: 0;
+            }
             &:first-child{
                 @include tablet{
                     border-bottom: 1px solid #464646;
@@ -1256,7 +1270,7 @@
     background-color: #1a1a1a;
     color: #fff;
     padding: 94px 40px 109px;
-    border-bottom: 1px solid #464646;
+    // border-bottom: 1px solid #464646;
 
     @include laptop{
         padding: 56px 40px;
